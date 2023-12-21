@@ -1,10 +1,6 @@
 slstatus - suckless status
 ==========================
-slstatus is a small tool for providing system status information to other
-programs over the EWMH property of the root window (used by dwm(1)) or
-standard input/output. It is designed to be as efficient as possible by
-only issuing the minimum of system calls required.
-
+status bar for dwm.
 
 Features
 --------
@@ -48,16 +44,11 @@ Installation
 Edit config.mk to match your local setup (slstatus is installed into the
 /usr/local namespace by default).
 
-Afterwards enter the following command to build and install slstatus (if
-necessary as root):
+      #to compile
+      make
 
-    make clean install
-
-
-Running slstatus
-----------------
-See the man page for details.
-
+      #to make the binary file
+      sudo make install
 
 Configuration
 -------------
