@@ -70,12 +70,8 @@ static const struct arg args[] = {
 	/* function format          argument */
 	{ ram_used, " [RAM %s ]",		NULL},
 	{ run_command, "[   %s ]", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
-/*	{ wifi_perc, "[ %s", "wlan0"},
-	{ wifi_essid, " %s] ",	"wlan0"},   */
-
 	{ wifi_essid, " [   %s] ",	"wlan0"},
-/*	{run_command, " [  %s%% ] ",	"amixer sget Master | awk -F'[][]' 'BEGIN {ORS=" "} /Front Left:/ {print $2} '"},  */
-//	{ run_command, "[V] %s", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
+	{ netspeed_rx, "[ 󰓅  %s]",	"wlan0" },
 	{battery_state, " [   %s",	"BAT0"},
 	{ battery_perc, " %s%% ] ",	    "BAT0"},
 	{ datetime, "|   %s ",           "%F %T" },
