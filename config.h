@@ -69,11 +69,14 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ ram_used, " [RAM %s ]",		NULL},
-	{ run_command, "[   %s ]", "amixer sget Master | tail -1 | awk '{print $5 }' | sed 's@\\(\\[\\|\\]\\)@@g'" },
-	{ wifi_essid, " [   %s] ",	"wlan0"},
-	{ netspeed_rx, "[ 󰓅  %s]",	"wlan0" },
-	{battery_state, " [   %s",	"BAT0"},
-	{ battery_perc, " %s%% ] ",	    "BAT0"},
+	{ run_command, "[ 󰃠 %s |", "echo \"$(cat /sys/class/backlight/amdgpu_bl1/brightness) /255 *10\" | bc" },
+	{ run_command, "   %s ]", "echo \"$(amixer sget Master | tail -1 | awk '{print $5}' | sed 's/[^0-9]//g') / 10\" | bc"},
+	{ wifi_essid, " [   %s ",	"wlan0"},
+	{ netspeed_rx, "|   %s]",	"wlan0" },
+//	{ netspeed_rx, " [   %s | ",	"wlan0" },
+//	{netspeed_tx, "  %s]",	"wlan0"},
+	{battery_state, " [    %s",	"BAT0"},
+	{ battery_perc, "%s%%] ",	    "BAT0"},
 	{ datetime, "|   %s ",           "%F %T" },
 
 };
